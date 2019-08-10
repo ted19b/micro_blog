@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-     <h1>Hi, {{user.username}}</h1>
 
-    {% for post in posts %}
-    <div>
-        <p>{{post.author.username}} says: <b>{{post.body}}</b></p>
+<div class="row">
+    <h1>Welcome to Microblog</h1>
+
+    <div class="mt-5">
+        In this blog we talk about artificial intelligence and computer security.
+        If you want to learn a lot about these areas too, stay with us.
     </div>
-    {% endfor %}
+
+
+
+    <div class="mt-5">
+        <p>
+            if you want to enjoy our articles, then you must create an account...
+            don't panic it only takes 2 minutes, we just need a username and
+            an email to confirm the account creation process.
+        </p>
+
+        <p>
+            Ready for a learning adventure...
+        </p>
+
+    </div>
+</div>
+
 {% endblock %}
