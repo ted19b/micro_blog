@@ -31,3 +31,10 @@ Open a terminal
 > export FLASK_APP=run_blog.py
 
 > flask run
+
+Run the application in debug mode 
+> export FLASK_DEBUG=1
+
+> export FLASK_APP=run_blog.py
+
+> flask run
