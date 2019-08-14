@@ -5,6 +5,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 
 from flask import Flask
 from flask_login import LoginManager
+from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
@@ -12,11 +13,21 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+# for the database
 db = SQLAlchemy(app)
+
+# to make migration after change in database without lose data
 migrate = Migrate(app, db)
+
+# for login fonction
 login = LoginManager(app)
 login.login_view = 'login'
 
+# for mail support in the app
+mail = Mail(app)
+
+# to send a mail to a developper when an error occurs in the app
 if not app.debug:
     if app.config['MAIL_SERVER']:
         auth = None
@@ -33,6 +44,7 @@ if not app.debug:
         mail_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
 
+    # save the log in the file
     if not os.path.exists('logs'):
         os.mkdir('logs')
     file_handler = RotatingFileHandler('logs/microblog.log', maxBytes=10240,
