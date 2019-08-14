@@ -233,4 +233,4 @@ def contact():
     if form.validate_on_submit():
         pass
         return
-    return render_template('contact.html', form=form)
+    return render_template('contact.html', title='Contact Us', form=form)

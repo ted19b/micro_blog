@@ -1,0 +1,32 @@
+$pad-submit-btn: .8125rem 1.25rem;
+
+%form-btn-submit {
+  margin-top: 30px;
+  width: 100%;
+  padding: $pad-submit-btn;
+}
+
+%form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 1.625rem);
+    padding: .8125rem 1.25rem;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #161c2d;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f1f4f8;
+    border-radius: .375rem;
+    box-shadow: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input#username, input#password, input#email, input#name, input#repeat_password {
+  @extend %form-control;
+}
+
+input#log_in, input#sign_up, input#send_message {
+  @extend %form-btn-submit;
+}
