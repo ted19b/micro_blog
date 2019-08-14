@@ -61,3 +61,10 @@ class ResetPasswordForm(FlaskForm):
     repeat_password = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('new_password')])
     submit = SubmitField('Request Password Reset')
+
+
+class ContactForm(FlaskForm):
+    name = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Send message')

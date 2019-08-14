@@ -8,7 +8,7 @@ from datetime import datetime
 from blog_app.email import send_password_reset_email
 from blog_app.models import User, Post
 from blog_app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, ResetPasswordRequestForm, \
-    ResetPasswordForm
+    ResetPasswordForm, ContactForm
 
 
 @app.route('/')
@@ -225,3 +225,12 @@ def reset_password(token):
         return redirect(url_for('login'))
 
     return render_template('reset_password.html', title='Reset Password', form=form)
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        pass
+        return
+    return render_template('contact.html', form=form)
