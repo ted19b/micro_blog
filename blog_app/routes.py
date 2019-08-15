@@ -26,7 +26,7 @@ def dashboard():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash('Your post is now live!')
+        flash('Your post is now live!', 'info')
         return redirect(url_for('dashboard'))
 
     # implement pagination in the dasboard page
@@ -73,7 +73,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash('Invalid username or password', 'danger')
             return redirect(url_for('login'))
 
         login_user(user, remember=form.remember_me.data)
@@ -99,7 +99,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash('Congratulations, you are now a registered user!', 'success')
         return redirect(url_for('login'))
 
     return render_template('register.html', title='Registration', form=form)
@@ -128,7 +128,7 @@ def edit_profile():
         current_user.about_me = form.about_me.data
 
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash('Your changes have been saved.', 'success')
         return redirect(url_for('user', username=current_user.username))
 
     elif request.method == 'GET':
@@ -160,15 +160,15 @@ def internal_error(error):
 def follow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        flash('User {} not found.'.format(username))
+        flash('User {} not found.'.format(username), 'warning')
         return redirect(url_for('dashboard'))
     if user == current_user:
-        flash('You cannot follow yourself!')
+        flash('You cannot follow yourself!', 'info')
         return redirect(url_for('user', username=username))
 
     current_user.follow(user)
     db.session.commit()
-    flash('You are following {}!'.format(username))
+    flash('You are following {}!'.format(username), 'info')
     return redirect(url_for('user', username=username))
 
 
@@ -177,15 +177,15 @@ def follow(username):
 def unfollow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        flash('User {} not found.'.format(username))
+        flash('User {} not found.'.format(username), 'warning')
         return redirect(url_for('dashboard'))
     if user == current_user:
-        flash('You cannot unfollow yourself!')
+        flash('You cannot unfollow yourself!', 'info')
         return redirect(url_for('user', username=username))
 
     current_user.unfollow(user)
     db.session.commit()
-    flash('You are not following {}.'.format(username))
+    flash('You are not following {}.'.format(username), 'info')
     return redirect(url_for('user', username=username))
 
 
@@ -200,7 +200,7 @@ def reset_password_request():
         if user:
             send_password_reset_email(user)
 
-        flash('Check your email for the instruction to reset your password')
+        flash('Check your email for the instruction to reset your password', 'info')
 
         return redirect(url_for('login'))
 
@@ -214,14 +214,14 @@ def reset_password(token):
 
     user = User.verify_reset_password_token(token)
     if not user:
-        flash('Your token has expired, please restart the process')
+        flash('Your token has expired, please restart the process', 'warning')
         return redirect(url_for('home'))
 
     form = ResetPasswordForm()
     if form.validate_on_submit():
         user.set_password(form.new_password.data)
         db.session.commit()
-        flash('Your password has been reset')
+        flash('Your password has been reset', 'success')
         return redirect(url_for('login'))
 
     return render_template('reset_password.html', title='Reset Password', form=form)
