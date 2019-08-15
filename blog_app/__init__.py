@@ -5,6 +5,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 
 from flask import Flask
 from flask_bootstrap import Bootstrap
+from flask_fontawesome import FontAwesome
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
@@ -28,8 +29,11 @@ login.login_view = 'login'
 # for mail support in the app
 mail = Mail(app)
 
-#Add twitter Bootstrap to the app
+# Add twitter Bootstrap to the app
 bootstrap = Bootstrap(app)
+
+# Font awesome
+fa = FontAwesome(app)
 
 # to send a mail to a developper when an error occurs in the app
 if not app.debug:

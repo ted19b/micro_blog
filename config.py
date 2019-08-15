@@ -27,5 +27,5 @@ class Config(object):
 
     ADMINS = ['no-reply@microblog.de']
 
-    POSTS_PER_PAGE = 3
+    POSTS_PER_PAGE = 9
 

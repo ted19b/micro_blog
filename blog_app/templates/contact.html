@@ -3,43 +3,29 @@
 
 {% block app_content %}
 
-    <div class="container mt-5">
-        <main>
-            <div class="container d-flex flex-column">
-              <div class="row align-items-center justify-content-between no-gutters min-vh-100">
-                <div class="col-12 col-md-5 align-self-stretch">
-                  <!-- Image (mobile) -->
-                  <img src="{{url_for('static', filename='img/contact_us.png')}}" alt="login illustration" class="img-fluid">
-                </div>
-
-                <div class="col-12 col-md-6 py-8 py-md-11">
-
-                  <!-- Heading -->
-                  <h2 class="title-out font-weight-bold text-center mb-2">
-                    Contact us for anything.
-                  </h2>
-
-                  <!-- Text -->
-                  <p class="font-size-lg text-center text-muted mb-0">
-                    Our goal is to be as helpful as possible.
-                  </p>
-
-                  <!-- Divider -->
-                  <hr class="hr-sm my-6 my-md-8 border-gray-300">
-
-                  <!-- Form -->
-                  {{ wtf.quick_form(form) }}
-
-                </div>
-              </div> <!-- / .row -->
+    <section class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-between no-gutters min-vh-100">
+            <div class="col-12 col-md-5 align-self-stretch">
+                <!-- Image (mobile) -->
+                <img src="{{url_for('static', filename='img/contact_us.png')}}" alt="login illustration" class="img-fluid">
             </div>
-        </main>
 
-        <hr class="mt-5">
+            <div class="col-12 col-md-6 py-8 py-md-11">
+                <!-- Heading -->
+                <h2 class="title-out font-weight-bold text-center mb-2">Contact us for anything.</h2>
 
-        <footer>
-            <p>&copy 2016 Company, Inc.</p>
-        </footer>
-    </div>
+                <!-- Text -->
+                <p class="font-size-lg text-center text-muted mb-0">
+                    Our goal is to be as helpful as possible.
+                </p>
 
+                <!-- Divider -->
+                <hr class="hr-sm my-6 my-md-8 border-gray-300">
+
+                <!-- Form -->
+                {{ wtf.quick_form(form) }}
+
+            </div>
+        </div> <!-- / .row -->
+    </section>
 {% endblock %}

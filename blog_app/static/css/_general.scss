@@ -25,7 +25,7 @@ $nav-link-color: #506690;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-input#username, input#password, input#email, input#name, input#repeat_password {
+input#username, input#password, input#email, input#name, input#repeat_password, input#edit_username {
   @extend %form-control;
 }
 

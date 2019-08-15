@@ -31,8 +31,8 @@ class RegistrationForm(FlaskForm):
 
 
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
+    edit_username = StringField('Edit Username', validators=[DataRequired()])
+    about_me = TextAreaField('About me', validators=[Length(min=0, max=500)])
     submit = SubmitField('Submit')
 
     def __init__(self, original_username, *args, **kwargs):
@@ -47,7 +47,7 @@ class EditProfileForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
+    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=500)])
     submit = SubmitField('Submit')
 
 
@@ -66,5 +66,5 @@ class ResetPasswordForm(FlaskForm):
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=140)])
+    message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=500)])
     send_message = SubmitField('Send message')

@@ -124,7 +124,7 @@ def user(username):
 def edit_profile():
     form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
-        current_user.username = form.username.data
+        current_user.username = form.edit_username.data
         current_user.about_me = form.about_me.data
 
         db.session.commit()
@@ -132,10 +132,10 @@ def edit_profile():
         return redirect(url_for('user', username=current_user.username))
 
     elif request.method == 'GET':
-        form.username.data = current_user.username
+        form.edit_username.data = current_user.username
         form.about_me.data = current_user.about_me
 
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
+    return render_template('edit_profile.html', avatar=current_user.avatar(350), title='Edit Profile', form=form)
 
 
 @app.route('/logout')
@@ -231,6 +231,6 @@ def reset_password(token):
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
-        pass
-        return
+        flash('your message has been correctly sent', 'success')
+        return redirect(url_for('contact'))
     return render_template('contact.html', title='Contact Us', form=form)

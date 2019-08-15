@@ -4,7 +4,7 @@ input#log_in, input#sign_up, input#send_message {
   padding: 0.8125rem 1.25rem;
 }
 
-input#username, input#password, input#email, input#name, input#repeat_password {
+input#username, input#password, input#email, input#name, input#repeat_password, input#edit_username {
   display: block;
   width: 100%;
   height: calc(1.6em + 1.625rem);
@@ -25,8 +25,8 @@ input#username, input#password, input#email, input#name, input#repeat_password {
   color: #335eea;
 }
 
-#brand-in, #brand-out {
-  color: #335eea;
+.brand {
+  color: #335eea !important;
 }
 
 #nav-menu a {
@@ -34,6 +34,61 @@ input#username, input#password, input#email, input#name, input#repeat_password {
 }
 #nav-menu a:hover {
   color: #335eea;
+}
+
+#user_profile_view {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+div.u-xl-avatar {
+  width: 10rem;
+  height: 10rem;
+}
+
+a.transition-3d-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+a.transition-3d-hover:hover, a.transition-3d-hover:focus {
+  transform: translateY(-3px);
+}
+
+a#btn-user-edit, a#btn-follow, a#btn-unfollow {
+  border: none;
+  color: #335eea;
+  font-weight: 500 !important;
+  background: rgba(55, 125, 255, 0.1);
+  padding: 0.4375rem 0.9375rem;
+}
+a#btn-user-edit:hover, a#btn-follow:hover, a#btn-unfollow:hover {
+  color: #fff;
+  background: #377dff;
+  box-shadow: 0 4px 11px rgba(55, 125, 255, 0.35);
+}
+
+a#btn-follow, a#btn-unfollow {
+  font-size: 0.6875rem;
+}
+
+.font-size-info {
+  font-size: 0.875rem;
+}
+
+.font-weight-info {
+  font-weight: 600 !important;
+}
+
+.shadow {
+  box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.125) !important;
+}
+
+textarea#about_me {
+  height: 250px;
+}
+
+body {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

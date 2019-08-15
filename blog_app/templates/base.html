@@ -10,9 +10,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             {% if current_user.is_anonymous %}
-                <a id="brand-out" class="navbar-brand" href="{{url_for('home')}}">MicroTechBlog</a>
+                <a class="brand navbar-brand" href="{{url_for('home')}}">MicroTechBlog</a>
             {% else %}
-                <a id="brand-in" class="navbar-brand" href="{{url_for('dashboard')}}">MicroTechBlog</a>
+                <a class="brand navbar-brand" href="{{url_for('dashboard')}}">MicroTechBlog</a>
             {% endif %}
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,13 +71,33 @@
             <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
             {% if messages %}
                 {% for category, message in messages %}
-                     <div class="alert alert-{{ category }} alert-dismissible" role="alert">
-                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                         <!-- <strong>Title</strong> --> {{ message }}
-                     </div>
+                    {% if category == 'message' %}
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <!-- <strong>Title</strong> --> {{ message }}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <!-- <strong>Title</strong> --> {{ message }}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         {% endwith %}
+
+
+        {% if form %}
+            {% for field in form.errors %}
+                {% for error in form.errors[field] %}
+                    <div id="error-{{field}}" class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <!-- <strong>Title</strong> --> {{ form[field].label }}: {{ ''.join(error) }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+
 
         {# application content needs to be provided in the app_content block #}
         {% block app_content %} {% endblock %}
@@ -95,4 +115,5 @@
 {% block styles %}
     {{super()}}
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    {{ fontawesome_html() }}
 {% endblock %}
