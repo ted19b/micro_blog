@@ -1,0 +1,13 @@
+#brand-in, #brand-out {
+  color: $brand-color;
+}
+
+#nav-menu {
+  a {
+    color: $nav-link-color;
+  }
+
+  a:hover {
+    color: $brand-color;
+  }
+}

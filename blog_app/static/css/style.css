@@ -21,4 +21,19 @@ input#username, input#password, input#email, input#name, input#repeat_password {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.title-out {
+  color: #335eea;
+}
+
+#brand-in, #brand-out {
+  color: #335eea;
+}
+
+#nav-menu a {
+  color: #506690;
+}
+#nav-menu a:hover {
+  color: #335eea;
+}
+
 /*# sourceMappingURL=style.css.map */

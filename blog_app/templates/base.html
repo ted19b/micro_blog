@@ -10,9 +10,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             {% if current_user.is_anonymous %}
-                <a class="navbar-brand" href="{{url_for('home')}}">MicroTechBlog</a>
+                <a id="brand-out" class="navbar-brand" href="{{url_for('home')}}">MicroTechBlog</a>
             {% else %}
-                <a class="navbar-brand" href="{{url_for('dashboard')}}">MicroTechBlog</a>
+                <a id="brand-in" class="navbar-brand" href="{{url_for('dashboard')}}">MicroTechBlog</a>
             {% endif %}
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
+                <ul id="nav-menu" class="navbar-nav ml-auto">
                     {% if current_user.is_anonymous %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('login') }}">Login</a>

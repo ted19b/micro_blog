@@ -1,4 +1,6 @@
 $pad-submit-btn: .8125rem 1.25rem;
+$brand-color: #335eea;
+$nav-link-color: #506690;
 
 %form-btn-submit {
   margin-top: 30px;
@@ -29,4 +31,8 @@ input#username, input#password, input#email, input#name, input#repeat_password {
 
 input#log_in, input#sign_up, input#send_message {
   @extend %form-btn-submit;
+}
+
+.title-out {
+  color: $brand-color;
 }
