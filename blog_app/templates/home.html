@@ -1,29 +1,48 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block app_content %}
+    <div class="jumbotron bg-light">
+        <div class="container">
+            <h1>Welcome to Microblog</h1>
 
-<div class="row">
-    <h1>Welcome to Microblog</h1>
+            <div>
+                <p>
+                    This application allows you to read micro content from different people and on different topics.
+                    You have the possibility to follow a person whose publications are of interest to you.
+                </p>
+                <p>
+                    Come and share your experience and thoughts with us...
+                    ready to start you just need to create an account...
+                    it's only 15 seconds...
+                </p>
+            </div>
 
-    <div class="mt-5">
-        In this blog we talk about artificial intelligence and computer security.
-        If you want to learn a lot about these areas too, stay with us.
+            <p>
+                <a class="btn btn-primary btn-lg" href="{{url_for('login')}}" role="button">Create a account »</a>
+            </p>
+        </div>
     </div>
 
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
 
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
 
-    <div class="mt-5">
-        <p>
-            if you want to enjoy our articles, then you must create an account...
-            don't panic it only takes 2 minutes, we just need a username and
-            an email to confirm the account creation process.
-        </p>
-
-        <p>
-            Ready for a learning adventure...
-        </p>
-
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+        </div>
     </div>
-</div>
-
 {% endblock %}

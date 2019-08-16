@@ -1,67 +1,34 @@
 {% extends "base.html" %}
-
-{% block content %}
-    <h1>Register</h1>
-
-    <form class="mt-5" action="" method="post" role="form" novalidate>
-        {{ form.hidden_tag() }}
-
-        <fieldset class="form-row">
-
-            <div class="form-group">
-                <label class="mr-5">{{ form.username.label }}</label>
-                {{ form.username(size=30) }}
-             </div>
-
-            {% for error in form.username.errors %}
-            <div class="alert alert-danger col-lg-4" role="alert">
-                {{ error }}
-            </div>
-            {% endfor %}
-
-             <div class="form-group">
-                <label class="mr-5">{{ form.email.label }}</label>
-                {{ form.email(size=30) }}
-             </div>
-
-            {% for error in form.email.errors %}
-            <div class="alert alert-danger col-lg-4" role="alert">
-                {{ error }}
-            </div>
-            {% endfor %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 
-            <div class="form-group">
-                <label class="mr-5">{{ form.password.label }}</label>
-                {{ form.password(size=30) }}
+{% block app_content %}
+    <section class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+            <div class="col-8 col-md-6 col-lg-7 offset-md-1 order-md-2 mt-auto mt-md-0 pt-8 pb-4 py-md-11">
+                <!-- Image -->
+                <img src="{{url_for('static', filename='img/online_registration.jpg')}}" alt="login illustration" class="img-fluid">
             </div>
 
-            {% for error in form.password.errors %}
-            <div class="alert alert-danger col-lg-4" role="alert">
-                {{error}}
+            <div class="col-12 col-md-5 col-lg-4 order-md-1 mb-auto mb-md-0 pb-8 py-md-11">
+
+                <!-- Heading -->
+                <h2 class="title-out mb-0 font-weight-bold text-center">Sign Up</h2>
+
+                <!-- Text -->
+                <p class="mb-6 text-center text-muted">
+                    Thank you for joining us.
+                </p>
+
+                <!-- Form -->
+                {{ wtf.quick_form(form) }}
+
+                <!-- Text -->
+                <p class="mb-0 font-size-sm text-center text-muted mt-5">
+                    Already have an account?<a href="{{url_for('login')}}"> Log in</a>.
+                </p>
+
             </div>
-            {% endfor %}
-
-
-
-            <div class="form-group">
-                <label class="mr-5">{{ form.repeat_password.label }}</label>
-                {{ form.repeat_password(size=30) }}
-            </div>
-
-            {% for error in form.repeat_password.errors %}
-            <div class="alert alert-danger col-lg-4" role="alert">
-                {{error}}
-            </div>
-            {% endfor %}
-
-
-            <div>
-                {{ form.sign_up() }}
-            </div>
-
-        </fieldset>
-
-    </form>
-
+        </div> <!-- / .row -->
+    </section>
 {% endblock %}
