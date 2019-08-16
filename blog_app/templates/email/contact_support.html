@@ -1,0 +1,24 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Contact Support team{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>Hello Support Team - Technoblog, </h1>
+
+        <div class="container">
+            <p>{{message}}</p>
+
+            <p>King regards.</p>
+
+            <p>{{name}}</p>
+        </div>
+
+        <div class="small mt-5 text-muted">
+            <p>response me at {{email}}</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+{% endblock %}

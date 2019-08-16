@@ -1,0 +1,281 @@
+# German translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-08-16 17:50+0200\n"
+"PO-Revision-Date: 2019-08-16 17:52+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: blog_app/forms.py:26
+msgid "Please use a different username"
+msgstr "Bitte verwenden Sie einen anderen Benutzernamen."
+
+#: blog_app/forms.py:31
+msgid "Please use a different email address."
+msgstr "Bitte verwenden Sie eine andere E-Mail-Adresse."
+
+#: blog_app/forms.py:47
+msgid "Please use a different username."
+msgstr "Bitte verwenden Sie einen anderen Benutzernamen."
+
+#: blog_app/routes.py:33
+msgid "Your post is now live!"
+msgstr "Dein Beitrag ist jetzt live!"
+
+#: blog_app/routes.py:80
+msgid "Invalid username or password"
+msgstr "Ungültiger Benutzername oder Passwort"
+
+#: blog_app/routes.py:106
+msgid "Congratulations, you are now a registered user!"
+msgstr "Herzlichen Glückwunsch, Sie sind jetzt ein registrierter Benutzer!"
+
+#: blog_app/routes.py:135
+msgid "Your changes have been saved."
+msgstr "Deine Änderungen wurden gespeichert."
+
+#: blog_app/routes.py:156 blog_app/routes.py:173
+#, python-format
+msgid "User %(username)s not found."
+msgstr "Benutzer %(username)s nicht gefunden."
+
+#: blog_app/routes.py:159
+msgid "You cannot follow yourself!"
+msgstr "Sie können Ihnen selbst nicht folgen!"
+
+#: blog_app/routes.py:164
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "Sie folgen %(username)s!"
+
+#: blog_app/routes.py:176
+msgid "You cannot unfollow yourself!"
+msgstr "Sie können Ihnen selbst nicht folgen!"
+
+#: blog_app/routes.py:181
+#, python-format
+msgid "You are not following %(username)s."
+msgstr "Sie folgen nicht %(username)s."
+
+#: blog_app/routes.py:196
+msgid "Check your email for the instruction to reset your password"
+msgstr ""
+"Schauen Sie in Ihrer E-Mail nach der Anleitung zum Zurücksetzen Ihres "
+"Passworts."
+
+#: blog_app/routes.py:210
+msgid "Your token has expired, please restart the process"
+msgstr "Ihr Token ist abgelaufen, bitte starten Sie den Prozess neu."
+
+#: blog_app/routes.py:217
+msgid "Your password has been reset"
+msgstr "Ihr Passwort wurde erfolgreich zurückgesetzt"
+
+#: blog_app/routes.py:228
+msgid "your message has been correctly sent"
+msgstr "Ihre Nachricht wurde erfolgreich gesendet."
+
+#: blog_app/templates/404.html:4
+msgid "File Not Found"
+msgstr "Datei nicht gefunden"
+
+#: blog_app/templates/404.html:5 blog_app/templates/500.html:6
+msgid "Back"
+msgstr "Zurück"
+
+#: blog_app/templates/500.html:4
+msgid "An unexpected error has occurred"
+msgstr "Ein unerwarteter Fehler ist aufgetreten."
+
+#: blog_app/templates/500.html:5
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr ""
+"Der Administrator wurde benachrichtigt. Entschuldigung für die "
+"Unannehmlichkeiten!"
+
+#: blog_app/templates/base.html:5
+msgid " Welcome to Microblog"
+msgstr "Willkommen bei Microblog"
+
+#: blog_app/templates/base.html:26
+msgid "Login"
+msgstr "Anmelden"
+
+#: blog_app/templates/base.html:30
+msgid "Register"
+msgstr "Registrieren"
+
+#: blog_app/templates/base.html:34
+msgid "Contact"
+msgstr "Kontakt"
+
+#: blog_app/templates/base.html:38
+msgid "Explore"
+msgstr "Erkunden"
+
+#: blog_app/templates/base.html:42
+msgid "Profile"
+msgstr "Profil"
+
+#: blog_app/templates/base.html:46
+msgid "Logout"
+msgstr "Abmeldung"
+
+#: blog_app/templates/base.html:56
+msgid "Search"
+msgstr "Suche"
+
+#: blog_app/templates/contact.html:15
+msgid "Contact us for anything"
+msgstr "Kontaktieren Sie uns für weitere Informationen"
+
+#: blog_app/templates/contact.html:19
+msgid "Our goal is to be as helpful as possible"
+msgstr "Unser Ziel ist es, so hilfreich wie möglich zu sein."
+
+#: blog_app/templates/dashboard.html:6
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr "Hallo, %(username)s!"
+
+#: blog_app/templates/dashboard.html:27 blog_app/templates/user.html:63
+msgid "Newer posts"
+msgstr "Neuere Beiträge"
+
+#: blog_app/templates/dashboard.html:35 blog_app/templates/user.html:71
+msgid "Older posts"
+msgstr "Ältere Beiträge"
+
+#: blog_app/templates/edit_profile.html:15
+msgid "Edit Profile"
+msgstr "Profil bearbeiten"
+
+#: blog_app/templates/home.html:10
+msgid ""
+"This application allows you to read micro content from different people "
+"and on different topics.\n"
+"                    You have the possibility to follow a person whose "
+"publications are of interest to you"
+msgstr ""
+
+#: blog_app/templates/home.html:15
+msgid "Come and share your experience and thoughts with us"
+msgstr "Kommen Sie und teilen Sie Ihre Erfahrungen und Gedanken mit uns."
+
+#: blog_app/templates/home.html:19
+msgid "ready to start you just need to create an account"
+msgstr "bereit zu beginnen, müssen Sie nur ein Konto erstellen."
+
+#: blog_app/templates/home.html:23
+msgid "it is only 15 seconds"
+msgstr "es sind nur 15 Sekunden."
+
+#: blog_app/templates/home.html:28
+msgid "Create a account"
+msgstr "Ein Konto erstellen"
+
+#: blog_app/templates/home.html:39 blog_app/templates/home.html:50
+msgid ""
+"Donec id elit non mi porta gravida at eget metus. Fusce dapibus,\n"
+"                    tellus ac cursus commodo, tortor mauris condimentum "
+"nibh, ut fermentum\n"
+"                    massa justo sit amet risus. Etiam porta sem malesuada"
+" magna mollis euismod.\n"
+"                    Donec sed odio dui"
+msgstr ""
+
+#: blog_app/templates/home.html:44 blog_app/templates/home.html:55
+#: blog_app/templates/home.html:66
+msgid "View details"
+msgstr ""
+
+#: blog_app/templates/home.html:61
+msgid ""
+"Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas "
+"eget quam.\n"
+"                    Vestibulum id ligula porta felis euismod semper. "
+"Fusce dapibus,\n"
+"                    tellus ac cursus commodo, tortor mauris condimentum "
+"nibh, ut fermentum massa\n"
+"                    justo sit amet risus"
+msgstr ""
+
+#: blog_app/templates/login.html:14
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: blog_app/templates/login.html:18
+msgid "Simplify your workflow in minutes."
+msgstr "Vereinfachen Sie Ihren Workflow in wenigen Minuten."
+
+#: blog_app/templates/login.html:25
+msgid "Do not have an account yet"
+msgstr "Haben Sie noch kein Konto"
+
+#: blog_app/templates/login.html:25
+msgid "Sign up"
+msgstr "Registrieren"
+
+#: blog_app/templates/login.html:29
+msgid "Forgot your password"
+msgstr "Haben Sie Ihr Passwort vergessen?"
+
+#: blog_app/templates/login.html:29
+msgid "Click to Reset It"
+msgstr "Bitte zurückzusetzen."
+
+#: blog_app/templates/register.html:16
+msgid "Sign Up"
+msgstr "Registrieren"
+
+#: blog_app/templates/register.html:20
+msgid "Thank you for joining us"
+msgstr "Vielen Dank, dass Sie sich uns angeschlossen haben."
+
+#: blog_app/templates/register.html:28
+msgid "Already have an account"
+msgstr "Haben Sie bereits ein Konto"
+
+#: blog_app/templates/register.html:28
+msgid "Log in"
+msgstr "Anmelden"
+
+#: blog_app/templates/user.html:15
+msgid "Follow"
+msgstr "Folgen"
+
+#: blog_app/templates/user.html:17
+msgid "Unfollow"
+msgstr "Nicht mehr folgen"
+
+#: blog_app/templates/user.html:46
+msgid "Edit your profile"
+msgstr "Bearbeiten Sie Ihr Profil"
+
+#~ msgid ""
+#~ "This application allows you to read "
+#~ "micro content from different people and"
+#~ " on different topics.\n"
+#~ "You have the possibility to follow "
+#~ "a person whose publications are of "
+#~ "interest to you"
+#~ msgstr ""
+#~ "Diese Anwendung ermöglicht es Ihnen, "
+#~ "Mikroinhalte von verschiedenen Personen und"
+#~ " zu verschiedenen Themen zu lesen.\n"
+#~ "Sie haben die Möglichkeit, einer Person"
+#~ " zu folgen, deren Veröffentlichungen für"
+#~ " Sie von Interesse sind."
+

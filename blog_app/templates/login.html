@@ -11,30 +11,22 @@
 
            <div class="col-12 col-md-5 col-lg-4 order-md-1 mb-auto mb-md-0 pb-8 py-md-11">
                <!-- Heading -->
-               <h2 class="title-out mb-0 font-weight-bold text-center">Sign in</h2>
+               <h2 class="title-out mb-0 font-weight-bold text-center">{{_('Sign in')}}</h2>
 
                <!-- Text -->
                <p class="mb-6 text-center text-muted">
-                   Simplify your workflow in minutes.
+                   {{_('Simplify your workflow in minutes.')}}
                </p>
 
                {{ wtf.quick_form(form) }}
 
-               {% for field in form.errors %}
-                    {% for error in form.errors[field] %}
-                        <div class="alert alert-error">
-                            <strong>Error!</strong> {{error}}
-                        </div>
-                    {% endfor %}
-               {% endfor %}
-
                <!-- Text -->
                <p class="mb-0 font-size-sm text-center text-muted mt-5">
-                   Don't have an account yet? <a href="{{url_for('register')}}">Sign up</a>.
+                   {{_('Do not have an account yet')}}? <a href="{{url_for('register')}}">{{_('Sign up')}}</a>.
                </p>
 
                <p class="mb-0 font-size-sm text-center text-muted mt-3">
-                   Forgot your password? <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+                   {{_('Forgot your password')}}? <a href="{{ url_for('reset_password_request') }}">{{_('Click to Reset It')}}</a>
                </p>
 
            </div>
