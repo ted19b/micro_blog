@@ -9,6 +9,7 @@ from flask_fontawesome import FontAwesome
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
+from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 
@@ -34,6 +35,9 @@ bootstrap = Bootstrap(app)
 
 # Font awesome
 fa = FontAwesome(app)
+
+# flask moment to handle with date and time of the user
+moment = Moment(app)
 
 # to send a mail to a developper when an error occurs in the app
 if not app.debug:

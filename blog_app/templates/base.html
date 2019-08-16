@@ -117,3 +117,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
     {{ fontawesome_html() }}
 {% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}

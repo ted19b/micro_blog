@@ -14,7 +14,7 @@
                     <img class="img-fluid rounded-circle" src="{{ post.author.avatar(64) }}" alt="Image Description">
                 </div>
                 <div class="media-body d-flex justify-content-end text-muted font-size-info ml-2">
-                    July 15
+                    {{ moment(post.timestamp).fromNow() }}
                 </div>
             </div>
         </div>
