@@ -3,7 +3,7 @@
 
 {% block app_content %}
     <section>
-        <h2 class="title-out mb-0 font-weight-bold text-center my-5">Hi, {{current_user.username}}</h2>
+        <h2 class="title-out mb-0 font-weight-bold text-center my-5">{{_('Hi, %(username)s!', username=current_user.username)}}</h2>
 
         {% if form %}
             {{ wtf.quick_form(form) }}
@@ -24,7 +24,7 @@
                     <li class="page-item mr-auto">
                         <a class="page-link" href="{{ prev_url }}" aria-label="Previous">
                             <span aria-hidden="true">«</span>
-                            <span class="d-none d-sm-inline-block ml-1">Newer posts</span>
+                            <span class="d-none d-sm-inline-block ml-1">{{_('Newer posts')}}</span>
                         </a>
                     </li>
                 {% endif %}
@@ -32,7 +32,7 @@
                 {% if next_url %}
                     <li class="page-item ml-auto">
                         <a class="page-link" href="{{ next_url }}" aria-label="Next">
-                            <span class="d-none d-sm-inline-block mr-1">Older posts</span>
+                            <span class="d-none d-sm-inline-block mr-1">{{_('Older posts')}}</span>
                             <span aria-hidden="true">»</span>
                         </a>
                     </li>

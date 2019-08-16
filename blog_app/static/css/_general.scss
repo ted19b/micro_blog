@@ -2,6 +2,10 @@ $pad-submit-btn: .8125rem 1.25rem;
 $brand-color: #335eea;
 $nav-link-color: #506690;
 
+.color-brand {
+  color: $brand-color;
+}
+
 %form-btn-submit {
   margin-top: 30px;
   width: 100%;

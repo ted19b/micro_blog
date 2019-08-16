@@ -1,12 +1,10 @@
 <div class="col-md-6 col-lg-4 my-5">
-    <article class="card shadow mt-5">
+    <article class="card shadow">
         <div class="card-body p-3">
             <a class="d-inline-block font-weight-info text-uppercase mb-2" href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
 
             <p>
-                {{ post.body }} <br>
-                For a lot of people these days, Measure What Matters by John Doerr is their first introduction to OKR (Objectives and Key Results).
-                It's a good book — though there are a couple of things that Measure What Matters got entirely wrong.
+                {{ post.body }}
             </p>
 
             <div class="media align-items-center pt-3">
@@ -14,7 +12,7 @@
                     <img class="img-fluid rounded-circle" src="{{ post.author.avatar(64) }}" alt="Image Description">
                 </div>
                 <div class="media-body d-flex justify-content-end text-muted font-size-info ml-2">
-                    July 15
+                    {{ moment(post.timestamp).fromNow() }}
                 </div>
             </div>
         </div>
