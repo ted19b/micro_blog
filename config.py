@@ -1,6 +1,9 @@
 import os
+from dotenv import load_dotenv
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, 'env'))
 
 
 class Config(object):
@@ -17,10 +20,9 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
-    ADMINS = ['no-reply@microblog.de']
+    ADMINS = ['ted@hitech4every1.de']
 
     POSTS_PER_PAGE = 9
 
     # config for language
     LANGUAGES = ['en', 'de', 'fr']
-

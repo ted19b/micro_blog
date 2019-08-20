@@ -10,7 +10,7 @@
     <header>
         {% if current_user.is_anonymous %}
             <nav class="container navbar navbar-expand-lg navbar-light bg-white">
-                <a class="brand navbar-brand" href="{{url_for('home')}}">MicroTechBlog</a>
+                <a class="brand navbar-brand" href="{{url_for('main.home')}}">MicroTechBlog</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentOut" aria-controls="navbarSupportedContentOut" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,22 +19,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContentOut">
                     <ul id="nav-menuOut" class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}">{{_('Login')}}</a>
+                            <a class="nav-link" href="{{ url_for('auth.login') }}">{{_('Login')}}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('register')}}">{{_('Register')}}</a>
+                            <a class="nav-link" href="{{url_for('auth.register')}}">{{_('Register')}}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('contact')}}">{{_('Contact')}}</a>
+                            <a class="nav-link" href="{{url_for('contact.contact')}}">{{_('Contact')}}</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         {% else %}
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="brand navbar-brand" href="{{url_for('dashboard')}}">MicroTechBlog</a>
+                    <a class="brand navbar-brand" href="{{url_for('main.dashboard')}}">MicroTechBlog</a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentIn" aria-controls="navbarSupportedContentIn" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -43,19 +43,19 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContentIn">
                         <ul id="nav-menuIn" class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{url_for('dashboard')}}">{{_('Dashboard')}}<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{url_for('main.dashboard')}}">{{_('Dashboard')}}<span class="sr-only">(current)</span></a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url_for('explore')}}">{{_('Explore')}}</a>
+                                <a class="nav-link" href="{{url_for('main.explore')}}">{{_('Explore')}}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url_for('user', username=current_user.username)}}">{{_('Profile')}}</a>
+                                <a class="nav-link" href="{{url_for('main.user', username=current_user.username)}}">{{_('Profile')}}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url_for('logout')}}">{{_('Logout')}}</a>
+                                <a class="nav-link" href="{{url_for('auth.logout')}}">{{_('Logout')}}</a>
                             </li>
                         </ul>
 
