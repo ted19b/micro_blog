@@ -1,7 +1,7 @@
 <div class="container">
     <article class="card shadow mt-5">
         <div class="card-body p-3">
-            <a class="d-inline-block font-weight-info text-uppercase mb-2" href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
+            <a class="d-inline-block font-weight-info text-uppercase mb-2" href="{{ url_for('main.user', username=post.author.username) }}">{{ post.author.username }}</a>
 
             <p>
                 {{ post.body }}

@@ -1,10 +1,15 @@
 import os
+from dotenv import load_dotenv
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, 'env'))
 
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'microblog_app.db')
@@ -17,10 +22,9 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
-    ADMINS = ['no-reply@microblog.de']
+    ADMINS = ['ted@hitech4every1.de']
 
     POSTS_PER_PAGE = 9
 
     # config for language
     LANGUAGES = ['en', 'de', 'fr']
-

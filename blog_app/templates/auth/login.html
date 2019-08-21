@@ -22,11 +22,11 @@
 
                <!-- Text -->
                <p class="mb-0 font-size-sm text-center text-muted mt-5">
-                   {{_('Do not have an account yet')}}? <a href="{{url_for('register')}}">{{_('Sign up')}}</a>.
+                   {{_('Do not have an account yet')}}? <a href="{{url_for('auth.register')}}">{{_('Sign up')}}</a>.
                </p>
 
                <p class="mb-0 font-size-sm text-center text-muted mt-3">
-                   {{_('Forgot your password')}}? <a href="{{ url_for('reset_password_request') }}">{{_('Click to Reset It')}}</a>
+                   {{_('Forgot your password')}}? <a href="{{ url_for('auth.reset_password_request') }}">{{_('Click to Reset It')}}</a>
                </p>
 
            </div>
