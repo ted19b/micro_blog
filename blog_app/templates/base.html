@@ -59,16 +59,19 @@
                             </li>
                         </ul>
 
-                        <ul class="navbar-nav navbar-right ml-auto">
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{_('Search')}}</button>
-                            </form>
-                        </ul>
+                         {% if g.search_form %}
+                            <ul class="navbar-nav navbar-right ml-auto">
+                                <form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('main.search') }}" role="form">
+                                    <div class="form-group">
+                                        {{ g.search_form.q(size=20, class='form-control mr-sm-2', placeholder=g.search_form.q.label.text) }}
+                                    </div>
+                                </form>
+                            </ul>
+                         {% endif %}
                     </div>
                 </nav>
 
-                {% endif %}
+        {% endif %}
     </header>
 {% endblock %}
 

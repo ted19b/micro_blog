@@ -42,6 +42,19 @@ to activate the sending of mails in the application it is necessary to configure
 
 you can use the same configuration to use another mail account or even a local mail server.
 
+just create an ".env" file and declare these variables in the file... they will be automatically loaded when the application is started.
+
+example of the ".env" file
+    
+    SECRET_KEY=your-secret-key
+    MAIL_SERVER=smtp.googlemail.com
+    MAIL_PORT=587
+    MAIL_USE_TLS=1
+    MAIL_USERNAME=your-gmail-username
+    MAIL_PASSWORD=your-gmail-password
+    MS_TRANSLATOR_KEY=<your-translator-key-here>
+    ELASTICSEARCH_URL=http://localhost:9200
+
 #### Translation Config
 Extracting Text to Translate...
 you can use the pybabel command to extract them to a .pot file, which stands for portable object template. This is a text file that includes all the texts that were marked as needing translation. The purpose of this file is 
