@@ -28,3 +28,6 @@ class Config(object):
 
     # config for language
     LANGUAGES = ['en', 'de', 'fr']
+
+    # Config for logs in stout
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
