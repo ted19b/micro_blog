@@ -70,7 +70,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     # to get all posts of a user
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    about_me = db.Column(db.String(140))
+    about_me = db.Column(db.String(500))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
     followed = db.relationship(
@@ -129,7 +129,7 @@ class User(UserMixin, db.Model):
 class Post(SearchableMixin, db.Model):
     __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
+    body = db.Column(db.String(500))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
