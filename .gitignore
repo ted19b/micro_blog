@@ -106,3 +106,4 @@ venv.bak/
 #intellij
 .idea/
 logs
+.vagrant
