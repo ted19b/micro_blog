@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <div class="jumbotron bg-light">
+        <div class="container">
+            <h1>{{_('Welcome to Microblog')}}</h1>
+
+            <div>
+                <p>
+                   {{ _('This application allows you to read micro content from different people and on different topics. You have the possibility to follow a person whose publications are of interest to you')}}.
+                </p>
+
+                <p>
+                    {{_('Come and share your experience and thoughts with us')}}...
+                </p>
+
+                <p>
+                    {{_('ready to start you just need to create an account, it is only 15 seconds')}}...
+                </p>
+            </div>
+
+            <p class="mt-5">
+                <a class="btn btn-primary btn-lg" href="{{url_for('auth.login')}}" role="button">{{_('Create a account')}} »</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>
+                    {{_('Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                    massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+                    Donec sed odio dui')}}.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">{{_('View details')}} »</a></p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>
+                    {{_('Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                    massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+                    Donec sed odio dui')}}.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">{{_('View details')}} »</a></p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>
+                    {{_('Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
+                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                    justo sit amet risus')}}.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">{{_('View details')}} »</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

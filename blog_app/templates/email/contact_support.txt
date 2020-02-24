@@ -1,0 +1,9 @@
+Hello Support Team - Technoblog,
+
+{{message}}
+
+King regards.
+
+{{name}}
+
+response at {{email}}.

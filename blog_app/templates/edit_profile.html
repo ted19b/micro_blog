@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+    <section class="d-flex flex-column">
+       <div class="row align-items-center justify-content-center no-gutters">
+           <div class="col-8 col-md-6 col-lg-7 offset-md-1 order-md-2 mt-auto mt-md-0 pb-4">
+               <!-- Image -->
+               <img class="img-fluid rounded-circle" src="{{avatar}}" alt="profil illustration">
+           </div>
+
+           <div class="col-12 col-md-5 col-lg-4 order-md-1 mb-auto mb-md-0">
+               <!-- Heading -->
+               <h2 class="title-out mb-0 font-weight-bold text-center my-5">{{_('Edit Profile')}}</h2>
+
+               {{ wtf.quick_form(form) }}
+           </div>
+       </div> <!-- / .row -->
+   </section>
+
+{% endblock %}

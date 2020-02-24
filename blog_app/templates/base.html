@@ -1,0 +1,135 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    {% if title %}
+        {{ title }} - Microblog {% else %}{{_(' Welcome to Microblog')}}
+    {% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <header>
+        {% if current_user.is_anonymous %}
+            <nav class="container navbar navbar-expand-lg navbar-light bg-white">
+                <a class="brand navbar-brand" href="{{url_for('main.home')}}">MicroTechBlog</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentOut" aria-controls="navbarSupportedContentOut" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContentOut">
+                    <ul id="nav-menuOut" class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('auth.login') }}">{{_('Login')}}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('auth.register')}}">{{_('Register')}}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('contact.contact')}}">{{_('Contact')}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        {% else %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="brand navbar-brand" href="{{url_for('main.dashboard')}}">MicroTechBlog</a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentIn" aria-controls="navbarSupportedContentIn" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContentIn">
+                        <ul id="nav-menuIn" class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{url_for('main.dashboard')}}">{{_('Dashboard')}}<span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('main.explore')}}">{{_('Explore')}}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('main.user', username=current_user.username)}}">{{_('Profile')}}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url_for('auth.logout')}}">{{_('Logout')}}</a>
+                            </li>
+                        </ul>
+
+                         {% if g.search_form %}
+                            <ul class="navbar-nav navbar-right ml-auto">
+                                <form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('main.search') }}" role="form">
+                                    <div class="form-group">
+                                        {{ g.search_form.q(size=20, class='form-control mr-sm-2', placeholder=g.search_form.q.label.text) }}
+                                    </div>
+                                </form>
+                            </ul>
+                         {% endif %}
+                    </div>
+                </nav>
+
+        {% endif %}
+    </header>
+{% endblock %}
+
+{% block content %}
+    <main class="container mt-5">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'message' %}
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <!-- <strong>Title</strong> --> {{ message }}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <!-- <strong>Title</strong> --> {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+        {% if form %}
+            {% for field in form.errors %}
+                {% for error in form.errors[field] %}
+                    <div id="error-{{field}}" class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <!-- <strong>Title</strong> --> {{ form[field].label }}: {{ ''.join(error) }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %} {% endblock %}
+
+    </main>
+
+    <hr class="container mt-5">
+
+    <footer class="container">
+        <p>&copy 2019 Powered with all <i class="fas fa-heart color-brand"></i> by <a href="https://www.hitech4every1.de" class="color-brand">HiTech4Every1</a></p>
+    </footer>
+{% endblock %}
+
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    {{ fontawesome_html() }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block app_content %}
+    <section class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+            <div class="col-8 col-md-6 col-lg-7 offset-md-1 order-md-2 mt-auto mt-md-0 pt-8 pb-4 py-md-11">
+                <!-- Image -->
+                <img src="{{url_for('static', filename='img/online_registration.jpg')}}" alt="login illustration" class="img-fluid">
+            </div>
+
+            <div class="col-12 col-md-5 col-lg-4 order-md-1 mb-auto mb-md-0 pb-8 py-md-11">
+
+                <!-- Heading -->
+                <h2 class="title-out mb-0 font-weight-bold text-center">{{_('Sign Up')}}</h2>
+
+                <!-- Text -->
+                <p class="mb-6 text-center text-muted">
+                    {{_('Thank you for joining us')}}.
+                </p>
+
+                <!-- Form -->
+                {{ wtf.quick_form(form) }}
+
+                <!-- Text -->
+                <p class="mb-0 font-size-sm text-center text-muted mt-5">
+                    {{_('Already have an account')}}?<a href="{{url_for('auth.login')}}">{{_('Log in')}}</a>.
+                </p>
+
+            </div>
+        </div> <!-- / .row -->
+    </section>
+{% endblock %}

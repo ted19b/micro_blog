@@ -1,0 +1,13 @@
+.brand {
+  color: $brand-color !important;
+}
+
+#nav-menuIn, #nav-menuOut {
+  a {
+    color: $nav-link-color;
+  }
+
+  a:hover {
+    color: $brand-color;
+  }
+}
