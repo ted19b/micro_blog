@@ -33,41 +33,38 @@ def dashboard():
     form = PostForm()
 
     if form.validate_on_submit():
+        # for automatic language translation... to be implemented
         language = guess_language(form.post.data)
         if language == 'UNKNOWN' or len(language) > 5:
             language = ''
-        post = Post(body=form.post.data, author=current_user, language=language)
+        post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash(_('Your post is now live!'), 'info')
         return redirect(url_for('main.dashboard'))
 
     # implement pagination in the dasboard page
-    pagination = set_pagination(current_user, request)
-
-    return render_template('dashboard.html', title='Welcome to the Dashboard', posts=pagination[0].items,
-                           next_url=pagination[1], prev_url=pagination[2], user=current_user, form=form)
-
-
-# show the posts with pagination
-def set_pagination(actual_user, actual_request_param):
-    page = actual_request_param.args.get('page', 1, type=int)
-    posts = actual_user.followed_posts().paginate(page, current_app.config['POSTS_PER_PAGE'], False)
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(page, current_app.config['POSTS_PER_PAGE'], False)
 
     next_url = url_for('main.dashboard', page=posts.next_num) if posts.has_next else None
     prev_url = url_for('main.dashboard', page=posts.prev_num) if posts.has_prev else None
 
-    return posts, next_url, prev_url
+    return render_template('dashboard.html', title=_('Dashboard'), form=form, posts=posts.items,
+                           next_url=next_url, prev_url=prev_url)
 
 
 @bp.route('/explore')
 @login_required
 def explore():
-    # implement pagination in the dasboard page
-    pagination = set_pagination(current_user, request)
+    # implement pagination in the explore page
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(page, current_app.config['POSTS_PER_PAGE'], False)
 
-    return render_template('dashboard.html', title='Explore', posts=pagination[0].items,
-                           next_url=pagination[1], prev_url=pagination[2])
+    next_url = url_for('main.explore', page=posts.next_num) if posts.has_next else None
+    prev_url = url_for('main.explore', page=posts.prev_num) if posts.has_prev else None
+
+    return render_template('dashboard.html', title=_('Explore'), posts=posts.items, next_url=next_url, prev_url=prev_url)
 
 
 @bp.route('/user/<username>')
